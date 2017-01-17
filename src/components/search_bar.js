@@ -1,23 +1,26 @@
-const React = require('React')
-const Component = require('React').Component
+import React, { Component } from 'react';
 
 class SearchBar extends Component {
-    constructor(props){
-        super(props)
-        // can set this string to a default value
-        this.state = { term: 'Hellz Ya'}
-    }
-    render() {
-        return (
-            <div>
-              <input
-              //value turns this into a controlled component
-                value = { this.state.term }
-                onChange={ e => this.setState({ term: e.target.value }) }/>
-            </div>
-        )
-    }
+  constructor(props) {
+    super(props);
+  ///"Component state" state (localized)
+    this.state = { term: '' };
+  }
+
+  render() {
+    return (
+      <div className="search-bar">
+        <input
+          value={this.state.term}
+          onChange={event => this.onInputChange(event.target.value)} />
+      </div>
+    );
+  }
+
+  onInputChange(term) {
+    this.setState({term});
+    this.props.onSearchTermChange(term);
+  }
 }
 
-module.exports = SearchBar
-//state - plain jsObj that records events.
+export default SearchBar;
