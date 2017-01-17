@@ -9,6 +9,7 @@ const YTSearch = require('youtube-api-search')
 const SearchBar = require('./components/search_bar')
 const VideoList = require('./components/video_list').VideoList
 const VideoDetail = require('./components/video_detail').VideoDetail
+// const VideoListItem = require('./video_list_item').VideoListItem
 const API_KEY = 'AIzaSyCuSIJlUD3qM9N13H_K7F_w9KFBUC8bL38'
 // components - js functions that produce html.
 //do i need this component to update a state? ask when making a new component
@@ -24,7 +25,7 @@ class App extends Component {
 
     this.state = { videos: []}
 
-    YTSearch({key: API_KEY, term: "surfboards"}, (videos) =>  {
+    YTSearch({key: API_KEY, term: "surfboards"}, ({videos}) =>  {
       //resolved as this.setState({videos: videos})
       this.setState({ videos })
     })
@@ -37,7 +38,7 @@ class App extends Component {
           <VideoList videos={this.state.videos} />
         </div>
       )
-    }
+  }
 }
 
 //now render it on the page:

@@ -1,6 +1,6 @@
 "use strict"
 const React = require('react')
-const VideoListItem = require('./video_list_item').VideoListItem
+const VideoListItem = require('./video_list_item')
 
 const VideoList = (props) => {
     const videoItems = props.videos.map( (video) => {
@@ -17,5 +17,5 @@ const VideoList = (props) => {
 }
 
 module.exports = {
-    VideoList: VideoList;
-}
+    VideoList: VideoList
+};

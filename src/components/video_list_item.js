@@ -4,7 +4,7 @@ const React = require('react')
 
 const VideoListItem = ({video}) => {
     //identical to video object in paramter
-    const video = props.video
+    // const video = props.video
     const imageUrl = video.snippet.thumbnails.default.url
     return (
         <div>
@@ -25,5 +25,5 @@ const VideoListItem = ({video}) => {
 }
 
 module.exports = {
-    VideoListItem: VideoListItem;
+    VideoListItem
 }
